@@ -54,7 +54,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     
     ![image](./imgs/3.png)
 
-3. Modify the Makefile in linux-3.9.9 to locate "core-y" under ifeq ($(KBUILD_EXTMOD),) and add the newly created directory, virt_to_phy, at the end
+3. Modify the Makefile in "linux-3.9.9" to locate "core-y" under ifeq ($(KBUILD_EXTMOD),) and add the newly created directory, "virt_to_phy/", at the end
     
     ``` bash
     ~/Desktop/kernel/linux-3.9.9/virt_to_phy$ cd ..
@@ -63,7 +63,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     
     ![image](./imgs/4.png)
 
-4. Add the new system call to the last line of the syscall_32.tbl file
+4. Add the new system call to the last line of the "syscall_32.tbl" file
 
     ``` bash
     ~/Desktop/kernel/linux-3.9.9$ gedit arch/x86/syscalls/syscall_32.tbl 
@@ -71,7 +71,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     
     ![image](./imgs/5.png)
 
-5. Add the new system call before the last line containing #endif in the syscalls.h file
+5. Add the new system call before the last line containing #endif in the "syscalls.h" file
 
     ``` bash
     ~/Desktop/kernel/linux-3.9.9$ gedit include/linux/syscalls.h
