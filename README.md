@@ -31,7 +31,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ![image](./imgs/2.png)
     
 
-## Adding New System Call
+## Adding a New System Call
 
 1. Download the source code for Linux kernel 3.9.9 and unzip it
 
