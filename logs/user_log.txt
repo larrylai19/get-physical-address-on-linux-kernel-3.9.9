@@ -1,0 +1,72 @@
+I am thread with ID 2837 executing func1().
+In thread 2837 
+a = 123, logical address = 0x804b040, physical address = 0xc2746040
+b = 2847, logical address = 0xb75bd31c, physical address = 0xc192d31c
+tx: logical address = 0xb75bdb2c, physical address = 0xc192db2c
+heap p: local address = 0x9bac008, physical address = 0xc192f008
+heap &p: local address = 0x804b060, physical address = 0xc2746060
+heap p2: local address = 0x9bac038, physical address = 0xc192f038
+heap &p2: local address = 0x804b064, physical address = 0xc2746064
+bss c: local address = 0x804b068, physical address = 0xc2746068
+bss k: local address = 0x804b06c, physical address = 0xc274606c
+hello: logical address = 0x80486c8, physical address = 0xc58806c8
+func1: logical address = 0x80489e5, physical address = 0xc58809e5
+func2: logical address = 0x8048a6a, physical address = 0xc5880a6a
+func3: logical address = 0x8048aef, physical address = 0xc5880aef
+main: logical address = 0x8048b74, physical address = 0xc5880b74
+printf: logical address = 0x8048510, physical address = 0xc5880510
+====================================================================================================================
+I am main thread with ID 2836.
+In thread 2836 
+a = 123, logical address = 0x804b040, physical address = 0xc2746040
+b = 2846, logical address = 0xbfd4a58c, physical address = 0xc274758c
+tx: logical address = 0xb75be6ec, physical address = 0xc59416ec
+heap p: local address = 0x9bac008, physical address = 0xc192f008
+heap &p: local address = 0x804b060, physical address = 0xc2746060
+heap p2: local address = 0x9bac038, physical address = 0xc192f038
+heap &p2: local address = 0x804b064, physical address = 0xc2746064
+bss c: local address = 0x804b068, physical address = 0xc2746068
+bss k: local address = 0x804b06c, physical address = 0xc274606c
+hello: logical address = 0x80486c8, physical address = 0xc58806c8
+func1: logical address = 0x80489e5, physical address = 0xc58809e5
+func2: logical address = 0x8048a6a, physical address = 0xc5880a6a
+func3: logical address = 0x8048aef, physical address = 0xc5880aef
+main: logical address = 0x8048b74, physical address = 0xc5880b74
+printf: logical address = 0x8048510, physical address = 0xc5880510
+====================================================================================================================
+I am thread with ID 2838 executing func2().
+In thread 2838 
+a = 123, logical address = 0x804b040, physical address = 0xc2746040
+b = 2848, logical address = 0xb6dbc31c, physical address = 0xc165731c
+tx: logical address = 0xb6dbcb2c, physical address = 0xc1657b2c
+heap p: local address = 0x9bac008, physical address = 0xc192f008
+heap &p: local address = 0x804b060, physical address = 0xc2746060
+heap p2: local address = 0x9bac038, physical address = 0xc192f038
+heap &p2: local address = 0x804b064, physical address = 0xc2746064
+bss c: local address = 0x804b068, physical address = 0xc2746068
+bss k: local address = 0x804b06c, physical address = 0xc274606c
+hello: logical address = 0x80486c8, physical address = 0xc58806c8
+func1: logical address = 0x80489e5, physical address = 0xc58809e5
+func2: logical address = 0x8048a6a, physical address = 0xc5880a6a
+func3: logical address = 0x8048aef, physical address = 0xc5880aef
+main: logical address = 0x8048b74, physical address = 0xc5880b74
+printf: logical address = 0x8048510, physical address = 0xc5880510
+====================================================================================================================
+I am thread with ID 2839 executing func3().
+In thread 2839 
+a = 123, logical address = 0x804b040, physical address = 0xc2746040
+b = 2849, logical address = 0xb65bb31c, physical address = 0xc39da31c
+tx: logical address = 0xb65bbb2c, physical address = 0xc39dab2c
+heap p: local address = 0x9bac008, physical address = 0xc192f008
+heap &p: local address = 0x804b060, physical address = 0xc2746060
+heap p2: local address = 0x9bac038, physical address = 0xc192f038
+heap &p2: local address = 0x804b064, physical address = 0xc2746064
+bss c: local address = 0x804b068, physical address = 0xc2746068
+bss k: local address = 0x804b06c, physical address = 0xc274606c
+hello: logical address = 0x80486c8, physical address = 0xc58806c8
+func1: logical address = 0x80489e5, physical address = 0xc58809e5
+func2: logical address = 0x8048a6a, physical address = 0xc5880a6a
+func3: logical address = 0x8048aef, physical address = 0xc5880aef
+main: logical address = 0x8048b74, physical address = 0xc5880b74
+printf: logical address = 0x8048510, physical address = 0xc5880510
+====================================================================================================================
