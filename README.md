@@ -43,7 +43,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel$ tar zxvf linux-3.9.9.tar.gz 
     ```
 
-2. Create a new directory named "virt_to_phy" within linux-3.9.9, and place the prepared system call code, [virt_to_phy.c](#實作程式碼), inside it. Then, add a Makefile with the entry `obj-y := virt_to_phy.o`
+2. Create a new directory named "virt_to_phy" within linux-3.9.9, and place the prepared system call code, [virt_to_phy.c](#實作程式碼), inside it. Then, add a "Makefile" with the entry `obj-y := virt_to_phy.o`
 
     ``` bash
     ~/Desktop/kernel/linux-3.9.9$ mkdir virt_to_phy
@@ -54,7 +54,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     
     ![image](./imgs/3.png)
 
-3. Modify the Makefile in "linux-3.9.9" to locate "core-y" under ifeq ($(KBUILD_EXTMOD),) and add the newly created directory, "virt_to_phy/", at the end
+3. Modify the "Makefile" in "linux-3.9.9" to locate "core-y" under ifeq ($(KBUILD_EXTMOD),) and add the newly created directory, "virt_to_phy/", at the end
     
     ``` bash
     ~/Desktop/kernel/linux-3.9.9/virt_to_phy$ cd ..
