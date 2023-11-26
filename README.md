@@ -1,6 +1,6 @@
 # Implement a System Call on Linux Kernel 3.9.9 to Get Physical Address by Virtual address
 
-Translate by ChatGpt 3.5, the original Chinese version of the instruction document is [here](/README-ZH-TW.md).
+Translate by ChatGpt 3.5, the original Chinese version of the instruction document is [here](./README-ZH-TW.md).
 
 ## Overview 
 
@@ -260,6 +260,12 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 + ### Describe
 
     Modify the multi-thread program provided by the instructor to inspect the allocation status of code segments, data segments, BSS segments, heap segments, libraries, stack segments, and thread-local storage. Utilize the custom-made system call to retrieve their physical addresses.
+
++ ### Compile and run
+
+    `gcc main.c -o main.out -pthread`
+
+    The log of the execution is [here](./logs).
 
 + ### Implementation of the code
 
