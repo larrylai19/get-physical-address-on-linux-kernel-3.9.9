@@ -30,7 +30,7 @@
   ![image](./imgs/2.png)
 
 
-## 新增 System call
+## 新增 System Call
 
 1. 下載 linux kernel 3.9.9 源碼並解壓縮
     ``` bash
@@ -41,7 +41,7 @@
     ~/Desktop/kernel$ tar zxvf linux-3.9.9.tar.gz 
     ```
 
-2. 於 linux-3.9.9 中新增一個存放 system call 的資料夾，並放入寫好的 system call 程式碼 [virt_to_phy.c](#實作程式碼)，之後新增 Makefile 並寫入 `obj-y := virt_to_phy.o`
+2. 於 "linux-3.9.9" 中新增一個存放 system call 的資料夾，並放入寫好的 system call 程式碼 [virt_to_phy.c](#實作程式碼)，之後新增 "Makefile" 並寫入 `obj-y := virt_to_phy.o`
 
     ``` bash
     ~/Desktop/kernel/linux-3.9.9$ mkdir virt_to_phy
@@ -52,7 +52,7 @@
     
     ![image](./imgs/3.png)
 
-3. 修改於 linux-3.9.9 中的 Makefile 找到在 `ifeq ($(KBUILD_EXTMOD),)` 下的 core-y，並於最後貼上剛剛新增的資料夾 virt_to_phy
+3. 修改於 "linux-3.9.9" 中的 "Makefile" 找到在 `ifeq ($(KBUILD_EXTMOD),)` 下的 core-y，並於最後貼上剛剛新增的資料夾 "virt_to_phy/"
     
     ``` bash
     ~/Desktop/kernel/linux-3.9.9/virt_to_phy$ cd ..
@@ -61,7 +61,7 @@
     
     ![image](./imgs/4.png)
     
-4. 於 syscall_32.tbl 檔案中最後一行新增 system call
+4. 於 "syscall_32.tbl" 檔案中最後一行新增 system call
 
     ``` bash
     ~/Desktop/kernel/linux-3.9.9$ gedit arch/x86/syscalls/syscall_32.tbl 
@@ -69,7 +69,7 @@
     
     ![image](./imgs/5.png)
     
-5. 於 syscalls.h 檔案中最後一行 (#endif 前) 新增 system call
+5. 於 "syscalls.h" 檔案中最後一行 (#endif 前) 新增 system call
     
     ``` bash
     ~/Desktop/kernel/linux-3.9.9$ gedit include/linux/syscalls.h
@@ -135,7 +135,7 @@
     ![image](./imgs/10.png)
     
 
-## system call 實作
+## System Call 實作
 
 + ### 說明
 
