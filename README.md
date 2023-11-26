@@ -14,7 +14,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 1. In this project, **you need to write a new system call `void * my_get_physical_addresses(void *)`** so that a process can use it to **get the physical address of a virtual address of a process.** The return value of this system call is either 0 or an address value. 0 means that an error occurs when executing this system call. A non-zero value means the physical address of the logical address submitted to the system call as its parameter.
 
 2. Write a multi-thread program with three threads using the new system call to show how the following memory areas are shared by these threads. Your program must use variables with storage class __thread. The memory areas include code segments, data segments, BSS segments, heap segments, libraries, stack segments, and thread local storages. **You need to draw a figure as follows to show your results.**
-![image](https://hackmd.io/_uploads/H12g-jgra.png)
+![image](./imgs/2.png)
 
 
 ## Environment Version
