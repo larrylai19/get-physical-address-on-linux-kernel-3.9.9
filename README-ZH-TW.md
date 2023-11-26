@@ -257,7 +257,13 @@
 
 + ### 說明
 
-    修改老師提供的 multi-thread 程式檢視 code segments, data segments, BSS segments, heap segments, libraries, stack segments, and thread local storages 等分配情況並呼叫製作好的 system call 取得其 physical address 
+    修改老師提供的 multi-thread 程式檢視 code segments, data segments, BSS segments, heap segments, libraries, stack segments, and thread local storages 等分配情況並呼叫製作好的 system call 取得其 physical address
+  
++ ### 編譯執行
+
+    `gcc main.c -o main.out -pthread`
+
+    [執行時的 logs](./logs)
 
 + ### 實作程式碼
 
