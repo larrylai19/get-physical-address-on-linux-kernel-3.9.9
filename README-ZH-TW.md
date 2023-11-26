@@ -13,7 +13,7 @@
 1. In this project, **you need to write a new system call `void * my_get_physical_addresses(void *)`** so that a process can use it to **get the physical address of a virtual address of a process.** The return value of this system call is either 0 or an address value. 0 means that an error occurs when executing this system call. A non-zero value means the physical address of the logical address submitted to the system call as its parameter.
 
 2. Write a multi-thread program with three threads using the new system call to show how the following memory areas are shared by these threads. Your program must use variables with storage class __thread. The memory areas include code segments, data segments, BSS segments, heap segments, libraries, stack segments, and thread local storages. **You need to draw a figure as follows to show your results.**
-![image](https://hackmd.io/_uploads/H12g-jgra.png)
+![image](./imgs/1.png)
 
 
 ## 環境版本
@@ -27,7 +27,7 @@
 
 + 於 VirtualBox 中新增虛擬機後需要先將帳戶新增 super user 的權限，使我們能夠使用 sudo，可使用以下方法新增 ([Ref. 1](https://superuser.com/a/1755286))
 
-  ![image](https://hackmd.io/_uploads/HJAhWjxBp.png)
+  ![image](./imgs/2.png)
 
 
 ## 新增 System call
@@ -50,7 +50,7 @@
     ~/Desktop/kernel/linux-3.9.9/virt_to_phy$ gedit Makefile
     ```
     
-    ![image](https://hackmd.io/_uploads/HJHg5zAEa.png)
+    ![image](./imgs/3.png)
 
 3. 修改於 linux-3.9.9 中的 Makefile 找到在 `ifeq ($(KBUILD_EXTMOD),)` 下的 core-y，並於最後貼上剛剛新增的資料夾 virt_to_phy
     
@@ -59,7 +59,7 @@
     ~/Desktop/kernel/linux-3.9.9$ gedit Makefile
     ```
     
-    ![image](https://hackmd.io/_uploads/SyesB9MR4p.png)
+    ![image](./imgs/4.png)
     
 4. 於 syscall_32.tbl 檔案中最後一行新增 system call
 
@@ -67,7 +67,7 @@
     ~/Desktop/kernel/linux-3.9.9$ gedit arch/x86/syscalls/syscall_32.tbl 
     ```
     
-    ![image](https://hackmd.io/_uploads/BJ7xnzREp.png)
+    ![image](./imgs/5.png)
     
 5. 於 syscalls.h 檔案中最後一行 (#endif 前) 新增 system call
     
@@ -75,7 +75,7 @@
     ~/Desktop/kernel/linux-3.9.9$ gedit include/linux/syscalls.h
     ```
 
-    ![image](https://hackmd.io/_uploads/SJ3dJX0ET.png)
+    ![image](./imgs/6.png)
     
     
 ## kernel 編譯
@@ -115,11 +115,11 @@
     ~/Desktop/kernel/linux-3.9.9$ sudo gedit /etc/default/grub
     ```
 
-    ![image](https://hackmd.io/_uploads/S1AmEQA4p.png)
+    ![image](./imgs/7.png)
 
     找到檔案中上圖的部分，並修改為下圖所示
 
-    ![image](https://hackmd.io/_uploads/HkLVVXRNa.png)
+    ![image](./imgs/8.png)
 
     最後更新 grub，並重新開機，可以看到如下圖的畫面，進入 Advancedd options for Ubuntu 並選擇剛剛安裝的 kernel 即可
     
@@ -128,11 +128,11 @@
     ~/Desktop/kernel/linux-3.9.9$ sudo reboot
     ```
     
-    ![image](https://hackmd.io/_uploads/rkDbPQ0E6.png)
+    ![image](./imgs/9.png)
 
 5. 檢查 kernel 是否成功安裝
 
-    ![image](https://hackmd.io/_uploads/SybES4RET.png)
+    ![image](./imgs/10.png)
     
 
 ## system call 實作
@@ -141,15 +141,15 @@
 
     首先要先了解使用的 linux kernel paging 的機制，從 linux kernel 2.6.11 後採用了 4-level paging 結構 ([Ref. 3](https://hackmd.io/@harunanase/ryMdN1gDV#Paging-in-Linux))，如下圖
 
-    ![image](https://hackmd.io/_uploads/BJCNX6xH6.png)
+    ![image](./imgs/11.png)
 
     但是根據架構以及設定又有些微差異，以目前的 32-bit kernel 為例，它採用的是僅有 page global directory 和 page table 的 2-level paging ([Ref. 3](https://hackmd.io/@harunanase/ryMdN1gDV#Paging-in-Linux))，如下圖
 
-    ![image](https://hackmd.io/_uploads/HJZru6gHp.png)
+    ![image](./imgs/12.png)
 
     並且於 linux kernel 2.2.23 後開始支援完整的 PAE，且大部份 linux distribution 皆預設開啟 ([Ref. 4](https://en.wikipedia.org/wiki/Physical_Address_Extension#Linux))，因此結構又會有所不同，如下圖
 
-    ![image](https://hackmd.io/_uploads/r1S-F6eSp.png)
+    ![image](./imgs/13.png)
 
     由於根據不同架構和設定可能有不同的 paging 方式，linux 為了泛用性會自動去做一些處理，因此我們實作時只要以 4-level paging 為主去實作即可。
 
@@ -244,11 +244,11 @@
 
     編譯後執行
 
-    ![image](https://hackmd.io/_uploads/rkSOHNR4a.png)
+    ![image](./imgs/14.png)
 
     dmesg 觀看 kernel 訊息
 
-    ![image](https://hackmd.io/_uploads/SJI5BEANT.png)
+    ![image](./imgs/15.png)
     
     可以發現 pgd 以及 pud 的值相同，表示 pud 目前未被使用，符合前面介紹的 32-bit 開啟 PAE 的 paging 結構
     
@@ -440,7 +440,7 @@
 
 + ### 執行時記憶體分區情況
 
-    ![image](https://hackmd.io/_uploads/By2jgCeSa.png)
+    ![image](./imgs/16.png)
 
 
 ## 遇到的問題與解決方式(參考的資料與原始碼)
