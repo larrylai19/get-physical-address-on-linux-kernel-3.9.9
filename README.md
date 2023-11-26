@@ -1,6 +1,6 @@
 # Implement a System Call on Linux Kernel 3.9.9 to Get Physical Address by Virtual address
 
-Translate by ChatGpt 3.5, the original Chinese version of the instruction document is [here](/).
+Translate by ChatGpt 3.5, the original Chinese version of the instruction document is [here](/README-ZH-TW.md).
 
 ## Overview 
 
