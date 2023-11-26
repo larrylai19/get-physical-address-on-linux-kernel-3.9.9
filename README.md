@@ -27,6 +27,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 ## Environmental Preparation
 
 + After adding a virtual machine in VirtualBox, you need to add super user permissions to the account first so that we can use sudo. You can use the following method to add it
+
     ![image](./imgs/2.png)
     
 
