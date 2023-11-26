@@ -265,7 +265,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 
     `gcc main.c -o main.out -pthread`
 
-    The log of the execution is [here](./logs).
+    The logs of the execution is [here](./logs).
 
 + ### Implementation of the code
 
