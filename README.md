@@ -14,7 +14,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 1. In this project, **you need to write a new system call `void * my_get_physical_addresses(void *)`** so that a process can use it to **get the physical address of a virtual address of a process.** The return value of this system call is either 0 or an address value. 0 means that an error occurs when executing this system call. A non-zero value means the physical address of the logical address submitted to the system call as its parameter.
 
 2. Write a multi-thread program with three threads using the new system call to show how the following memory areas are shared by these threads. Your program must use variables with storage class __thread. The memory areas include code segments, data segments, BSS segments, heap segments, libraries, stack segments, and thread local storages. **You need to draw a figure as follows to show your results.**
-![image](./imgs/2.png)
+![image](./imgs/1.png)
 
 
 ## Environment Version
@@ -27,7 +27,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 ## Environmental Preparation
 
 + After adding a virtual machine in VirtualBox, you need to add super user permissions to the account first so that we can use sudo. You can use the following method to add it
-    ![image](https://hackmd.io/_uploads/HJAhWjxBp.png)
+    ![image](./imgs/2.png)
     
 
 ## Adding New System Call
@@ -51,7 +51,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel/linux-3.9.9/virt_to_phy$ gedit Makefile
     ```
     
-    ![image](https://hackmd.io/_uploads/HJHg5zAEa.png)
+    ![image](./imgs/3.png)
 
 3. Modify the Makefile in linux-3.9.9 to locate "core-y" under ifeq ($(KBUILD_EXTMOD),) and add the newly created directory, virt_to_phy, at the end
     
@@ -60,7 +60,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel/linux-3.9.9$ gedit Makefile
     ```
     
-    ![image](https://hackmd.io/_uploads/SyesB9MR4p.png)
+    ![image](./imgs/4.png)
 
 4. Add the new system call to the last line of the syscall_32.tbl file
 
@@ -68,7 +68,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel/linux-3.9.9$ gedit arch/x86/syscalls/syscall_32.tbl 
     ```
     
-    ![image](https://hackmd.io/_uploads/BJ7xnzREp.png)
+    ![image](./imgs/5.png)
 
 5. Add the new system call before the last line containing #endif in the syscalls.h file
 
@@ -76,7 +76,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel/linux-3.9.9$ gedit include/linux/syscalls.h
     ```
 
-    ![image](https://hackmd.io/_uploads/SJ3dJX0ET.png)
+    ![image](./imgs/6.png)
 
 
 ## Compile Kernel
@@ -114,11 +114,11 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel/linux-3.9.9$ sudo gedit /etc/default/grub
     ```
 
-    ![image](https://hackmd.io/_uploads/S1AmEQA4p.png)
+    ![image](./imgs/7.png)
 
     Locate the section in the file as shown in the upper image and modify it to match the following image.
 
-    ![image](https://hackmd.io/_uploads/HkLVVXRNa.png)
+    ![image](./imgs/8.png)
 
     Finally, update GRUB and reboot. You'll see a screen like the one in the image below. Enter "Advanced options for Ubuntu" and select the kernel you just installed.
     
@@ -127,11 +127,11 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     ~/Desktop/kernel/linux-3.9.9$ sudo reboot
     ```
     
-    ![image](https://hackmd.io/_uploads/rkDbPQ0E6.png)
+    ![image](./imgs/9.png)
 
 5. Verify if the kernel installation was successful
 
-    ![image](https://hackmd.io/_uploads/SybES4RET.png)
+    ![image](./imgs/10.png)
 
 
 ## Implement the System Call
@@ -141,16 +141,16 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
     
     Firstly, it's important to understand the paging mechanism used in the Linux kernel. Since Linux kernel version 2.6.11, it adopted a 4-level paging structure ([Ref. 3](https://hackmd.io/@harunanase/ryMdN1gDV#Paging-in-Linux)), as illustrated below.
 
-    ![image](https://hackmd.io/_uploads/BJCNX6xH6.png)
+    ![image](./imgs/11.png)
     
     
     However, based on the architecture and configuration, there are slight differences. Taking the current 32-bit kernel as an example, it employs a 2-level paging structure consisting only of a page global directory and page table ([Ref. 3](https://hackmd.io/@harunanase/ryMdN1gDV#Paging-in-Linux)), as depicted below.
 
-    ![image](https://hackmd.io/_uploads/HJZru6gHp.png)
+    ![image](./imgs/12.png)
 
     Additionally, starting from Linux kernel 2.2.23, full PAE (Physical Address Extension) support began, and most Linux distributions have it enabled by default ([Ref. 4](https://en.wikipedia.org/wiki/Physical_Address_Extension#Linux)). Consequently, the structure would differ again, as shown below.
 
-    ![image](https://hackmd.io/_uploads/r1S-F6eSp.png)
+    ![image](./imgs/13.png)
 
     Due to varying architectures and configurations, Linux automatically performs certain handling to ensure universality. Therefore, in our implementation, we primarily focus on implementing the 4-level paging mechanism.
 
@@ -245,11 +245,11 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 
     Compile and execute after compilation.
 
-    ![image](https://hackmd.io/_uploads/rkSOHNR4a.png)
+    ![image](./imgs/14.png)
 
     View kernel messages using `dmesg`.
 
-    ![image](https://hackmd.io/_uploads/SJI5BEANT.png)
+    ![image](./imgs/15.png)
     
     It can be observed that the values of PGD and PUD are the same, indicating that the PUD is currently unused, aligning with the previously discussed 32-bit PAE-enabled paging structure.
     
@@ -441,7 +441,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 
 + ### Memory allocation status during execution
 
-    ![image](https://hackmd.io/_uploads/By2jgCeSa.png)
+    ![image](./imgs/16.png)
 
 ## The encountered issues and their resolutions (referenced data and source code)
 
