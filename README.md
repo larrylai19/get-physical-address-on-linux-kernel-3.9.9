@@ -19,6 +19,7 @@ This project is Project 1 of the NCU Linux 2023 Fall course. It needs to impleme
 
 ## Environment Version
 
++ Host OS: Windows 10 Enterprise Edition 22H2 19045.3693
 + VM: [Oracle VirtualBox 7.0.12 r159484](https://download.virtualbox.org/virtualbox/7.0.12/)
 + OS: [Ubuntu 14.04.6 LTS (Trusty Tahr) 32-bit PC (i386) desktop image](https://releases.ubuntu.com/trusty/)
 + Kernel: [linux-3.9.9](https://mirrors.edge.kernel.org/pub/linux/kernel/v3.x/linux-3.9.9.tar.gz)
